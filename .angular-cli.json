@@ -19,9 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "assets/ventus/ventus.css",
+        "assets/ventus/normalize.css",
+        "assets/ventus/simple.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/jquery.js",
+        "assets/ventus/ventus.min.js",
+        "assets/underscore.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
