@@ -10,6 +10,8 @@ import { WinComponent } from './win/win.component';
 import { provideRoutes } from '@angular/router';
 import { WindowModule } from "app/window/window.module";
 
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { WindowModule } from "app/window/window.module";
   ],
   imports: [
     BrowserModule,
-    WindowModule
+    WindowModule,
+    HttpModule
   ],  
   providers: [ SystemJsNgModuleLoader,
   provideRoutes([

@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 declare var Ventus;
 
 @Injectable()
 export class WindowService {
+
+  @Output() newWindow = new EventEmitter();
+   @Output() closeWindow = new EventEmitter();
 
   private wm: any;
 

@@ -1,3 +1,4 @@
+import { DockComponent } from './dock/dock.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WindowComponent } from "app/window/window.component";
@@ -14,7 +15,8 @@ import { EsquemaComponent } from "app/esquema/esquema.component";
     WindowComponent,
     TesteComponent,
     WinComponent,
-    EsquemaComponent
+    EsquemaComponent,
+    DockComponent,
   ],
   entryComponents: [TesteComponent, WinComponent, EsquemaComponent],
   providers: [

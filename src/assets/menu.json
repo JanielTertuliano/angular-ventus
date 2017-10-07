@@ -1,0 +1,30 @@
+[{
+    "id": "window",
+    "image": "/assets/flatjoy-circle-deviantart/Apple.png",
+    "title": "window",
+    "text": "Create Window",
+    "opened": false,
+    "selected": false,
+    "refModule": "app/window/window.module#WindowModule",
+    "componentName": "TesteComponent"
+},
+{
+    "id": "win",
+    "image": "/assets/flatjoy-circle-deviantart/Air.png",
+    "title": "win",
+    "text": "Create Window win",
+    "opened": false,
+    "selected": false,
+    "refModule": "app/window/window.module#WindowModule",
+    "componentName": "WinComponent"
+},
+{
+    "id": "esquema",
+    "image": "/assets/flatjoy-circle-deviantart/Android.png",
+    "title": "esquema",
+    "text": "Create window Esquema",
+    "opened": false,
+    "selected": false,
+    "refModule": "app/window/window.module#WindowModule",
+    "componentName": "EsquemaComponent"
+}]
