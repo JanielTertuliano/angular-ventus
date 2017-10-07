@@ -69,7 +69,7 @@ export class WindowComponent implements OnInit {
       this.winlist.push(itemMenu.id);
 
       const cur_win = this.ws.createWindow({
-        title: 'Window ',
+        title: itemMenu.title,
         events: {
           closed: () => {
             cur_win.destroy();
