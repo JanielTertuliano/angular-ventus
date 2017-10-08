@@ -339,8 +339,8 @@
 .wm-window.maximazing {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
-  -webkit-transition: all 0.5s ease-out;
-          transition: all 0.5s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
 }
 .wm-window.closing {
   -webkit-animation: close 0.3s 1 ease-in forwards;
@@ -353,6 +353,9 @@
 .wm-window.resizing {
   -webkit-transition: none;
           transition: none;
+}
+.wm-window.minimized{
+    display: none !important;    
 }
 .wm-window.move {
   

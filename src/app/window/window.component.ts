@@ -1,6 +1,6 @@
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { WindowService } from './window.service';
-import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ComponentRef, ModuleWithComponentFactories, Compiler, SystemJsNgModuleLoader } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef, ComponentRef, ModuleWithComponentFactories, Compiler, SystemJsNgModuleLoader, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,7 +11,8 @@ declare var _;
 @Component({
   selector: 'app-window',
   templateUrl: './window.component.html',
-  styleUrls: ['./window.component.css']
+  styleUrls: ['./window.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class WindowComponent implements OnInit {
 
@@ -35,6 +36,7 @@ export class WindowComponent implements OnInit {
     var num = 1;
 
     $('.expose-button').click(() => {
+      $('.wm-window').removeClass('minimized');
       this.ws.toggleExpose();
     });
 
@@ -49,7 +51,7 @@ export class WindowComponent implements OnInit {
         }
       });
     });
-    this.getMenu().subscribe((data)=>{
+    this.getMenu().subscribe((data) => {
       this.mainMenu = data;
     });
   }
@@ -68,16 +70,19 @@ export class WindowComponent implements OnInit {
 
       this.winlist.push(itemMenu.id);
 
-      const cur_win = this.ws.createWindow({
+      let cur_win = this.ws.createWindow({
         title: itemMenu.title,
         events: {
           closed: () => {
-            cur_win.destroy();
             this.winlist.splice(this.winlist.indexOf(itemMenu.id), 1);
             this.ws.closeWindow.emit(itemMenu.id);
+            $(cur_win.el).remove();
+            cur_win.destroy();
           }
         }
       });
+
+      $(cur_win.el).attr('id', itemMenu.id);
 
       this.loader.load(itemMenu.refModule)  // load the module and its components
         .then((modFac) => {

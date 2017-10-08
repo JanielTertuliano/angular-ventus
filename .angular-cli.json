@@ -26,7 +26,7 @@
       ],
       "scripts": [
         "assets/jquery.js",
-        "assets/ventus/ventus.min.js",
+        "assets/ventus/ventus.js",
         "assets/underscore.js"
       ],
       "environmentSource": "environments/environment.ts",

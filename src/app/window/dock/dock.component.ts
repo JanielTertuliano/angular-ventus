@@ -1,6 +1,7 @@
 import { WindowService } from './../window.service';
 import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
+declare var $: any;
 
 @Component({
   selector: 'app-dock',
@@ -19,7 +20,7 @@ export class DockComponent implements OnInit {
   private x_pos = 20;
   private y_pos = 20;
 
-  constructor(private _wm: WindowService ) {
+  constructor(private _wm: WindowService) {
 
   }
 
@@ -39,12 +40,12 @@ export class DockComponent implements OnInit {
       const a = elem.offsetLeft + elem.offsetWidth / 2 - oEvent.clientX;
       const b = elem.offsetTop + this.dock.nativeElement.offsetTop + elem.offsetHeight / 2 - oEvent.clientY;
       // calculates the staight distance from cursor to the center of each image
-      const c =	Math.sqrt( a * a + b * b );
+      const c = Math.sqrt(a * a + b * b);
       // as the distance becomes smaller, the scale should be larger, 500 is a factor that can be customized to adjust
       // the distance where the dock can sense the cursor moves towards it
       let scale = 1 - c / this.minimalDistance;
       // always set the 1/2 scale no matter how far the cursor is away from the dock
-      if ( scale < this.minimalScale ) {
+      if (scale < this.minimalScale) {
         scale = this.minimalScale;
       }
       elem.style.width = this.iconWidth * scale + 'px';
@@ -56,7 +57,10 @@ export class DockComponent implements OnInit {
     // const win = this.winlist.filter( (wind) => {
     //   return (wind.id === id);
     // })[0];
-
+    if($(`#${id}`).hasClass('active') || $(`#${id}`).hasClass('minimized')  ){
+      $(`#${id}`)[0].querySelector('.wm-minimize').click();
+    }
+    $(`#${id}`)[0].querySelector('.wm-window-title').click();
     // // verify if not duplicated
     // if (!win.opened) {
     //   win.opened = true;
