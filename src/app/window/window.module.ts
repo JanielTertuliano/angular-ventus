@@ -5,7 +5,6 @@ import { WindowComponent } from "app/window/window.component";
 import { TesteComponent } from "app/teste/teste.component";
 import { WinComponent } from "app/win/win.component";
 import { WindowService } from "app/window/window.service";
-import { EsquemaComponent } from "app/esquema/esquema.component";
 
 @NgModule({
   imports: [
@@ -15,17 +14,14 @@ import { EsquemaComponent } from "app/esquema/esquema.component";
     WindowComponent,
     TesteComponent,
     WinComponent,
-    EsquemaComponent,
     DockComponent,
   ],
-  entryComponents: [TesteComponent, WinComponent, EsquemaComponent],
+  entryComponents: [TesteComponent, WinComponent],
   providers: [
     WindowService
   ],
   exports: [
-    WindowComponent,
-    TesteComponent,
-    WinComponent
+    WindowComponent
   ]
 })
 export class WindowModule { }

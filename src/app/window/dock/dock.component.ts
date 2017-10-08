@@ -53,55 +53,9 @@ export class DockComponent implements OnInit {
   }
 
   private dockSelect(id) {
-    // get win param by id
-    // const win = this.winlist.filter( (wind) => {
-    //   return (wind.id === id);
-    // })[0];
     if($(`#${id}`).hasClass('active') || $(`#${id}`).hasClass('minimized')  ){
       $(`#${id}`)[0].querySelector('.wm-minimize').click();
     }
     $(`#${id}`)[0].querySelector('.wm-window-title').click();
-    // // verify if not duplicated
-    // if (!win.opened) {
-    //   win.opened = true;
-
-    //   // on laisse passé un timeout, pour avoir le temps de construire le dom
-    //   setTimeout(( scope) => {
-    //     const cur_win = scope._wm.createWindowFromQuery('#' + win.id, {
-    //       title: win.title,
-    //       width: 250,
-    //       height: 280,
-    //       x: scope.x_pos,
-    //       y: scope.y_pos,
-    //       events: {
-    //         closed: () => {
-    //           console.log('closed sur ' + win.id);
-    //           win.ref = null;
-    //           win.opened = false;
-    //           win.selected = false;
-    //           cur_win.destroy();
-    //         },
-    //         focus: () => {
-    //           console.log('focus sur ' + win.id);
-    //           scope.winlist.forEach((autre) => {
-    //             autre.selected = false;
-    //           });
-    //           win.selected = true;
-    //         }
-    //       }
-    //     });
-    //     win.ref = cur_win;
-    //   }, 1, this);
-
-
-    //   // on incremente la position
-    //   this.x_pos += 10;
-    //   this.y_pos += 10;
-    // } else {
-    //   console.log('on selectionne depuis le menu');
-    //   win.ref.focus();
-    // }
-    // return false;
   }
-
 }

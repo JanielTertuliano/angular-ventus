@@ -1,3 +1,4 @@
+import { EsquemaModule } from './esquema/esquema.module';
 import { WindowService } from './window/window.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, SystemJsNgModuleLoader } from '@angular/core';
@@ -20,11 +21,13 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     WindowModule,
-    HttpModule
+    HttpModule,
+    EsquemaModule
   ],  
   providers: [ SystemJsNgModuleLoader,
   provideRoutes([
-     { loadChildren: 'app/window/window.module#WindowModule' }
+     { loadChildren: 'app/window/window.module#WindowModule' },
+     { loadChildren: 'app/esquema/esquema.module#EsquemaModule' }
   ])],
   bootstrap: [AppComponent]
 })

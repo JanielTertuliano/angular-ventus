@@ -25,6 +25,6 @@
     "text": "Create window Esquema",
     "opened": false,
     "selected": false,
-    "refModule": "app/window/window.module#WindowModule",
+    "refModule": "app/esquema/esquema.module#EsquemaModule",
     "componentName": "EsquemaComponent"
 }]
